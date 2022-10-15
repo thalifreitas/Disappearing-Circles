@@ -31,7 +31,6 @@ botaoDiv.style.display = "block";
 botaoDiv.style.justifySelf = "left";
 botaoDiv.style.marginLeft = "10px";
 
-
 //Botão para adicionar círculos
 let botaoAdd = document.createElement('button');
 botaoAdd.type = 'button';
@@ -44,6 +43,8 @@ let botaoRestart = document.createElement('button');
 botaoRestart.type = 'button';
 botaoRestart.appendChild(restartImg);
 botaoRestart.style.display = 'block';
+// botaoRestart.style.backgroundColor = "#8B4513";
+// botaoRestart.style.border = "#8B4513";
 
 
 //Botão para remover círculos
@@ -51,6 +52,8 @@ let botaoRemover = document.createElement('button');
 botaoRemover.type = 'button';
 botaoRemover.appendChild(removerImg);
 botaoRemover.style.display = 'block';
+// botaoRemover.style.backgroundColor = "#8B4513";
+// botaoRemover.style.border = "#8B4513";
 
 
 //Adicionando botões na div de botões
@@ -63,29 +66,46 @@ let circulos = document.createElement('div');
 circulos.style.float = "left";
 circulos.style.padding = "0.2em";
 circulos.style.margin = "1.0em auto";
+circulos.id = "circulos";
 
 
 let listaCores = ['#483D8B', '#006400', '#DAA520']
 
-//Ao clicar no botão Adicionar
+//Adicionar círculos ao clicar no botão Adicionar
 botaoAdd.onclick = function(){
     let circulo = document.createElement('div');
     
     //style circulo
     circulo.style.width = '80px';
     circulo.style.height = '80px';
-    circulo.style.float = 'right';
+    circulo.style.float = 'left';
     circulo.style.margin = '20px';
     circulo.style.borderRadius = '50%';
+    circulo.style.display = "block";
+
+    //Remover círculos ao clicar neles
+    circulo.id = "circulo";
+    circulo.onclick = function(){
+        circulo.style.display = "none";
+    }
 
     let cor = listaCores[Math.floor(Math.random() * listaCores.length)];
     circulo.style.background = cor;
     circulos.appendChild(circulo);
 }
 
+//Remover círculos ao clicar no botão Remover
+botaoRemover.onclick = function(){
+    circulos.removeChild(circulos.lastChild);
+}
 
-
-
+//Recomeçando ao clicar no botão Restart
+botaoRestart.onclick = function(){
+    let circulos = document.getElementById('circulos');
+    while(circulos.firstChild){
+        circulos.removeChild(circulos.lastChild);
+    }
+}
 
 
 //Enviando
@@ -94,4 +114,5 @@ document.addEventListener('DOMContentLoaded', function(event) {
     document.body.appendChild(titulo);
     document.body.appendChild(botaoDiv);
     document.body.appendChild(circulos);
+    document.body.style.backgroundColor = '#DAA520';
 });
