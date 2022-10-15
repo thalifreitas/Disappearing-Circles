@@ -5,29 +5,38 @@ titulo.style.justifyContent = "center";
 titulo.id = "title";
 titulo.innerHTML = "DISAPPERING CIRCLES";
 
+//style titulo
+titulo.style.fontSize = '50px';
+
 //Imagens
 let restartImg = document.createElement('img');
 restartImg.src = 'img/restart.png';
-restartImg.title = "Restart";
-restartImg.style.width = "40px";
-restartImg.style.height= "40px";
+restartImg.title = "Recomeçar";
+
 
 let adicionarImg = document.createElement('img');
 adicionarImg.src = 'img/adicionar.png';
 adicionarImg.title = "Adicionar";
-adicionarImg.style.width = "40px";
-adicionarImg.style.height= "40px";
 
 let removerImg = document.createElement('img');
-removerImg.src = 'img/remove.png';
+removerImg.src = 'img/remover.png';
 removerImg.title = "Remover";
+
+//style imagens
+restartImg.style.width = "40px";
+restartImg.style.height= "40px";
+adicionarImg.style.width = "40px";
+adicionarImg.style.height= "40px";
 removerImg.style.width = "40px";
 removerImg.style.height= "40px";
+
 
 
 //Criando div do botão
 let botaoDiv = document.createElement('div');
 botaoDiv.style.display = "block";
+
+//style
 botaoDiv.style.justifySelf = "left";
 botaoDiv.style.marginLeft = "10px";
 
@@ -35,25 +44,33 @@ botaoDiv.style.marginLeft = "10px";
 let botaoAdd = document.createElement('button');
 botaoAdd.type = 'button';
 botaoAdd.appendChild(adicionarImg);
+//style Adicionar
 botaoAdd.style.display = 'block';
+botaoAdd.style.border = "#D3D3D3";
+botaoAdd.style.backgroundColor = "#D3D3D3";
+botaoAdd.style.margin = '10px'
 
 
 //Botão para recomeçar
 let botaoRestart = document.createElement('button');
 botaoRestart.type = 'button';
 botaoRestart.appendChild(restartImg);
+//style Recomeçar
 botaoRestart.style.display = 'block';
-// botaoRestart.style.backgroundColor = "#8B4513";
-// botaoRestart.style.border = "#8B4513";
+botaoRestart.style.backgroundColor = "#D3D3D3";
+botaoRestart.style.border = "#D3D3D3";
+botaoRestart.style.margin = '10px'
 
 
 //Botão para remover círculos
 let botaoRemover = document.createElement('button');
 botaoRemover.type = 'button';
 botaoRemover.appendChild(removerImg);
+//style remover
 botaoRemover.style.display = 'block';
-// botaoRemover.style.backgroundColor = "#8B4513";
-// botaoRemover.style.border = "#8B4513";
+botaoRemover.style.backgroundColor = "#D3D3D3";
+botaoRemover.style.border = "#D3D3D3";
+botaoRemover.style.margin = '10px'
 
 
 //Adicionando botões na div de botões
@@ -69,7 +86,7 @@ circulos.style.margin = "1.0em auto";
 circulos.id = "circulos";
 
 
-let listaCores = ['#483D8B', '#006400', '#DAA520']
+let listaCores = ['#FF0398', '#FF5E5E', '#03B4FF', '#FDA703', '#7C9939']
 
 //Adicionar círculos ao clicar no botão Adicionar
 botaoAdd.onclick = function(){
@@ -99,7 +116,7 @@ botaoRemover.onclick = function(){
     circulos.removeChild(circulos.lastChild);
 }
 
-//Recomeçando ao clicar no botão Restart
+//Recomeçar ao clicar no botão Restart
 botaoRestart.onclick = function(){
     let circulos = document.getElementById('circulos');
     while(circulos.firstChild){
@@ -114,5 +131,6 @@ document.addEventListener('DOMContentLoaded', function(event) {
     document.body.appendChild(titulo);
     document.body.appendChild(botaoDiv);
     document.body.appendChild(circulos);
-    document.body.style.backgroundColor = '#DAA520';
+    //style background
+    document.body.style.backgroundColor = '#D3D3D3';
 });
