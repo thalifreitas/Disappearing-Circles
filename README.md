@@ -8,3 +8,5 @@ Repositório destinado ao segundo trabalho da disciplina de Desenvolvimento Web 
 - O arquivo html correspondente deve possuir um body vazio.
 
 - Criar a interface que quiser via javascript.
+
+Para visualização: https://thalifreitas.github.io/Disappearing-Circles/
